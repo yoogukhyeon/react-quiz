@@ -20,8 +20,6 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [gameOver, setGameOver] = useState(true);
 
-	console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY));
-
 	const startTrivaia = async () => {
 		setLoading(true);
 		setGameOver(false);
@@ -40,6 +38,7 @@ function App() {
 			//사용자 답
 			const answer = e.currentTarget.value;
 
+			console.log('answer: :::::::::::', answer);
 			//해당 문제 답과 사용자 답이 맞는지 체크
 			const correct = questions[number].correct_answer === answer;
 
@@ -67,6 +66,7 @@ function App() {
 			setNumber(nextQuestion);
 		}
 	};
+
 	return (
 		<>
 			<GlobalStyle />
